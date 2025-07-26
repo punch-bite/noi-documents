@@ -1,34 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Route, Routes } from 'react-router-dom'
+import Home from "./pages/Home"
+import NotFound from "./pages/404"
+import Contact from "./pages/contact_nous"
+import AboutMe from "./pages/about_me"
+import TeamPage from "./pages/team"
+import Dashboard from "./pages/dashboard/dashboard"
+import Template from "./pages/dashboard/template"
+import MonCompte from "./pages/dashboard/mon_compte"
+import Workspace from "./pages/dashboard/workspace"
+import MainLayout from "./components/layouts/MainLayout"
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo noi" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Routes>
+
+      <Route path='/dashboard' element={<Dashboard />} >
+        <Route path='mon-compte' element={<MonCompte />} />
+        <Route path='template' element={<Template />} />
+        <Route path='workspace' element={<Workspace />} />
+
+
+        <Route path='template/:templateid' element={<Template />} />
+      </Route>
+
+
+
+      {/* Route imbriquée */}
+      <Route element={<MainLayout />}>
+        <Route path='/' element={<Home />} />
+        <Route path='/contactez-nous' element={<Contact />} />
+        <Route path="/a-propos" element={<AboutMe />} />
+        <Route path="team" element={<TeamPage />} />
+      </Route>
+
+
+      {/* 404 - Page non trouvée */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   )
 }
 
