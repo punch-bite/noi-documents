@@ -1,6 +1,28 @@
 import { Link } from "react-router-dom";
 
 function Home() {
+    function initMultiItemCarousel() {
+        const itemsPerSlide = 3; // Changer ce nombre selon vos besoins
+        const carousel = document.querySelector('#myCarouselTestimonie');
+        const items = carousel.querySelectorAll('.carousel-item');
+
+        items.forEach((el) => {
+            const minPerSlide = itemsPerSlide;
+            let next = el.nextElementSibling;
+
+            for (let i = 1; i < minPerSlide; i++) {
+                if (!next) {
+                    next = items[0];
+                }
+                const cloneNode = next.cloneNode(true);
+                el.appendChild(cloneNode.children[0]);
+                next = next.nextElementSibling;
+            }
+        });
+    }
+
+    // Appeler la fonction après le chargement du DOM
+    document.addEventListener('DOMContentLoaded', initMultiItemCarousel);
     return (
         <>
             <section className="container-fluid bg-light">
@@ -54,11 +76,202 @@ function Home() {
                     </div>
                 </div>
             </section>
-            <section className="container-fluid p-0 testimoniale py-5">
+            <section className="container-fluid p-0 testimoniale py-5 px-0">
                 <div className="container">
                     <h1 className="mt-5 text-white">
-                        Une plateforme <span className="text-gradient">tout-en-un</span>
+                        Boostez votre productivité avec <span className="text-gradient2">nos modèles clés en main</span>
                     </h1>
+                </div>
+                <div className="container modeles">
+                    <div className="carousel" id="myCarousel" data-bs-ride="carousel">
+                        <div className="carousel-indicators">
+                            <button type="button" className="active" data-bs-slide-to="0" data-bs-target="#myCarousel"></button>
+                            <button type="button" data-bs-slide-to="1" data-bs-target="#myCarousel"></button>
+                            <button type="button" data-bs-slide-to="2" data-bs-target="#myCarousel"></button>
+                        </div>
+                        <div className="carousel-inner">
+                            <div className="carousel-item active">
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-md-2 col-4 p-md-2 p-1">
+                                            <div className="card"><img src="/noi.ico" alt="" /></div>
+                                        </div>
+                                        <div className="col-md-2 col-4 p-md-2 p-1">
+                                            <div className="card"><img src="/noi.ico" alt="" /></div>
+                                        </div>
+                                        <div className="col-md-2 col-4 p-md-2 p-1">
+                                            <div className="card"><img src="/noi.ico" alt="" /></div>
+                                        </div>
+                                        <div className="col-md-2 col-4 p-md-2 p-1">
+                                            <div className="card"><img src="/noi.ico" alt="" /></div>
+                                        </div>
+                                        <div className="col-md-2 col-4 p-md-2 p-1">
+                                            <div className="card"><img src="/noi.ico" alt="" /></div>
+                                        </div>
+                                        <div className="col-md-2 col-4 p-md-2 p-1">
+                                            <div className="card"><img src="/noi.ico" alt="" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="carousel-caption">
+                                    <h5>First slide label</h5>
+                                    <p>Some representative placeholder content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-button-control">
+                            <button type="button" className="carousel-control-prev bg-black rounded-pill" data-bs-target="#myCarousel" data-bs-slide="prev"><span className="bi bi-arrow-left"></span></button>
+                            <button type="button" className="carousel-control-next bg-black rounded-pill" data-bs-target="#myCarousel" data-bs-slide="next"><span className="bi bi-arrow-right"></span></button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section className="container-fluid">
+                <div className="container">
+                    <h1 className="mt-5">
+                        Nos <span className="text-gradient">clients</span> parlent pour nous ✨
+                    </h1>
+                    <p>Des résultats concrets, des partenaires ravis. Découvrez ce qu'ils disent de leur expérience avec nous.</p>
+                </div>
+                <div className="container">
+                    <div className="carousel slide" id="myCarouselTestimonie" data-bs-ride="carousel">
+                        <div className="carousel-indicators">
+                            <button type="button" className="active" data-bs-slide-to="0" data-bs-target="#myCarouselTestimonie"></button>
+                            <button type="button" data-bs-slide-to="1" data-bs-target="#myCarouselTestimonie"></button>
+                        </div>
+                        <div className="carousel-inner py-md-5 px-md-1 p-2">
+                            <div className="carousel-item active">
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-md-4 col-12 p-md-2 p-1">
+                                            <div className="card">
+                                                <div className="card-body px-md-3">
+                                                    <p className="msg p-md-5 p-2">
+                                                        Cette application a standardisé tous nos documents d'en-tête en un clic.
+                                                        Plus d'erreurs de formatage et un gain de temps considérable pour notre cabinet.
+                                                    </p>
+                                                </div>
+                                                <div className="card-footer border-0 d-flex bg-transparent">
+                                                    <img className="img-fluid" src="/noi.ico" alt="noi.ico" />
+                                                    <div className="title me-2">
+                                                        <strong>Alexandre P.</strong><br />
+                                                        <label>Assistant juridique</label>
+                                                        <p className="rating text-warning">★ ★ ★ ★ ★</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4 col-12 p-md-2 p-1">
+                                            <div className="card">
+                                                <div className="card-body px-md-3">
+                                                    <p className="msg p-md-5 p-2">
+                                                        La bibliothèque de templates a réduit notre temps de création de documents de 70%.
+                                                        Les en-têtes professionnels sont maintenant notre signature visuelle.
+                                                    </p>
+                                                </div>
+                                                <div className="card-footer border-0 d-flex bg-transparent">
+                                                    <img className="img-fluid" src="/noi.ico" alt="noi.ico" />
+                                                    <div className="title me-2">
+                                                        <strong>Marine L.</strong><br />
+                                                        <label>Responsable administrative</label>
+                                                        <p className="rating text-warning">★ ★ ★ ★ ★</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4 col-12 p-md-2 p-1">
+                                            <div className="card">
+                                                <div className="card-body px-md-3">
+                                                    <p className="msg p-md-5 p-2">
+                                                        Enfin une solution simple pour uniformiser nos comptes-rendus médicaux.
+                                                        L'insertion automatique du logo et des coordonnées est révolutionnaire pour notre service.
+                                                    </p>
+                                                </div>
+                                                <div className="card-footer border-0 d-flex bg-transparent">
+                                                    <img className="img-fluid" src="/noi.ico" alt="noi.ico" />
+                                                    <div className="title me-2">
+                                                        <strong>Dr. Simon T</strong><br />
+                                                        <label>Médecin hospitalier</label>
+                                                        <p className="rating text-warning">★ ★ ★ ★ ★</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="carousel-item active">
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-md-4 col-12 p-md-2 p-1">
+                                            <div className="card">
+                                                <div className="card-body px-md-3">
+                                                    <p className="msg p-md-5 p-2">
+                                                        Créez des en-têtes personnalisés pour chaque client en 30 secondes.
+                                                        Cette application a donné une touche pro à tous nos documents commerciaux
+                                                    </p>
+                                                </div>
+                                                <div className="card-footer border-0 d-flex bg-transparent">
+                                                    <img className="img-fluid" src="/noi.ico" alt="noi.ico" />
+                                                    <div className="title me-2">
+                                                        <strong>Émilie R.</strong><br />
+                                                        <label>Chef de projet événementiel</label>
+                                                        <p className="rating text-warning">★ ★ ★ ★ ★</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4 col-12 p-md-2 p-1">
+                                            <div className="card">
+                                                <div className="card-body px-md-3">
+                                                    <p className="msg p-md-5 p-2">
+
+
+                                                        Plus besoin de Word compliqué !
+                                                        Votre application génère mes factures avec en-tête réglementaire en 2 clics.
+                                                        Un gain de productivité inestimable.
+                                                    </p>
+                                                </div>
+                                                <div className="card-footer border-0 d-flex bg-transparent">
+                                                    <img className="img-fluid" src="/noi.ico" alt="noi.ico" />
+                                                    <div className="title me-2">
+                                                        <strong>Mehdi K.</strong><br />
+                                                        <label>Comptable indépendant</label>
+                                                        <p className="rating text-warning">★ ★ ★ ★ ★</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4 col-12 p-md-2 p-1">
+                                            <div className="card">
+                                                <div className="card-body px-md-3">
+                                                    <p className="msg p-md-5 p-2">
+                                                        Tous les documents officiels de l'école ont maintenant
+                                                        une identité visuelle cohérente grâce à votre solution.
+                                                        Même les enseignants les moins technophiles l'adoptent !"
+                                                    </p>
+                                                </div>
+                                                <div className="card-footer border-0 d-flex bg-transparent">
+                                                    <img className="img-fluid" src="/noi.ico" alt="noi.ico" />
+                                                    <div className="title me-2">
+                                                        <strong>Nathalie D.</strong><br />
+                                                        <label>Directrice d'école</label>
+                                                        <p className="rating text-warning">★ ★ ★ ★ ★</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-button-control">
+                            <button type="button" className="carousel-control-prev bg-black rounded-pill" data-bs-target="#myCarouselTestimonie" data-bs-slide="prev"><span className="bi bi-arrow-left"></span></button>
+                            <button type="button" className="carousel-control-next bg-black rounded-pill" data-bs-target="#myCarouselTestimonie" data-bs-slide="next"><span className="bi bi-arrow-right"></span></button>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </>
