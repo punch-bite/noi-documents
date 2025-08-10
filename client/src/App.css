@@ -151,10 +151,6 @@ a.nav-link:hover {
   color: transparent;
 }
 
-.captive-box h4 {
-  text-wrap: nowrap;
-}
-
 .captive-box.first,
 .captive-box:hover {
   box-shadow: 0 0 10px 8px rgba(94, 1, 141, 0.08);

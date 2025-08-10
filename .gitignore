@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .vercel
+# Dans votre .gitignore
+node_modules/
+*/node_modules/

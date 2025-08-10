@@ -23,7 +23,7 @@ function Header() {
                         <li className='nav-item me-3'><Link className='nav-link' to={"/team"}>Notre Equipe</Link></li>
                     </ul>
                     <ul className='navbar-nav col-md-2'>
-                        <li className='nav-item'><Link className='btn btn-link bg-dark bg-gradient text-decoration-none text-white' to={"/"}>Connexion</Link></li>
+                        <li className='nav-item'><Link className='btn btn-link bg-dark bg-gradient text-decoration-none text-white' to={"/login"}>Connexion</Link></li>
                     </ul>
                 </nav>
             </div>
