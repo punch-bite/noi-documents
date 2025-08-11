@@ -26,7 +26,10 @@ export default defineConfig({
           if (id.includes('src/pages')) {
             return 'pages-' + id.split('pages/')[1].split('/')[0].toLowerCase();
           }
-        }
+        },
+        assetFileNames: 'assets/[hash][extname]',
+        chunkFileNames: 'assets/[hash].js',
+        entryFileNames: 'assets/[hash].js'
       }
     }
   },
