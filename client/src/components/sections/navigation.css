@@ -1,0 +1,5 @@
+#navigueur .form-control:focus{
+    border: 0 !important;
+    outline: 0 !important;
+    color: whitesmoke;
+}

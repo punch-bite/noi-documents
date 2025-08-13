@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '@/components/layouts/MainLayout';
 import AuthLayout from '@/components/layouts/AuthLayout';
-import Home from "@pages/Home";
+import Home from "@pages/homes/Home";
 import NotFound from "@pages/404";
 import Contact from "@pages/contact_nous";
 import AboutMe from "@pages/about_me";
@@ -11,6 +11,8 @@ import Template from "@pages/dashboard/template";
 import MonCompte from "@pages/dashboard/mon_compte";
 import Workspace from "@pages/dashboard/workspace";
 import LoginPage from "@pages/auth/login";
+import Politique from "@pages/legales/politiques";
+import Condition from "@pages/legales/conditions";
 import RegisterPage from "@pages/auth/register";
 
 const router = createBrowserRouter([
@@ -23,6 +25,8 @@ const router = createBrowserRouter([
       { path: 'a-propos', element: <AboutMe /> },
       { path: 'contactez-nous', element: <Contact /> },
       { path: 'team', element: <TeamPage /> },
+      { path: 'conditions', element: <Condition /> },
+      { path: 'politiques', element: <Politique /> },
 
     ]
   },

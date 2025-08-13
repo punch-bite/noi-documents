@@ -1,0 +1,76 @@
+.app{
+    display: flex;
+}
+#aside{
+    width: 200px;
+    min-height: 100vh;
+    height: 100%;
+    left: 0;
+    background: #272727;
+    text-align: start;
+    padding: 15px;
+    color: #fdf9fd;
+    position: relative;
+    float: left;
+}
+#aside .logoblock{
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0 5px 0;
+    border-bottom: 1px solid grey;
+}
+#aside .menu{
+    padding-top: 15px;
+}
+#aside .menu li{
+    padding-left: 10px;
+}
+#aside .menu li:hover{
+    background: var(--bg-primary);
+    border-radius: 5px;
+}
+#aside .menu li:hover a{
+    font-size: 16px;
+    font-weight: 700;
+}
+#aside .menu li a{
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+#aside .menu li a i{
+    margin-right: 15px;
+    font-size: 16px;
+}
+#aside:has(button:focus) {
+    width: 70px;
+    padding-left: 10px;
+}
+#aside:has(button:focus) + .main{
+   width: 100%;
+}
+#aside:has(button:focus) img{
+    display: none;
+}
+#aside:has(button:focus) button{
+    font-size: 22px;
+    padding: 10px;
+}
+#aside:has(button:focus) .menu li span{
+    display: none;
+}
+#aside:has(button:focus) .menu li i{
+    font-size: 22px;
+    font-weight: 900;
+}
+.main{
+    float: right;
+    width: 100%;
+}
+@media screen and (max-width:757px) {
+    #aside{
+        display: none;
+    }
+}

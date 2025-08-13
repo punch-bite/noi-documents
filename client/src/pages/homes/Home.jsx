@@ -1,28 +1,33 @@
 import { Link } from "react-router-dom";
 
 function Home() {
-    function initMultiItemCarousel() {
-        const itemsPerSlide = 3; // Changer ce nombre selon vos besoins
-        const carousel = document.querySelector('#myCarouselTestimonie');
-        const items = carousel.querySelectorAll('.carousel-item');
+    const sections = document.querySelectorAll('section');
+    // Configuration de l'Observer
+    const observerOptions = {
+        threshold: 0.5 // Déclenche quand 50% de la section est visible
+    };
 
-        items.forEach((el) => {
-            const minPerSlide = itemsPerSlide;
-            let next = el.nextElementSibling;
+    const observerSections = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Activer la section visible
+                entry.target.classList.add('active');
 
-            for (let i = 1; i < minPerSlide; i++) {
-                if (!next) {
-                    next = items[0];
-                }
-                const cloneNode = next.cloneNode(true);
-                el.appendChild(cloneNode.children[0]);
-                next = next.nextElementSibling;
+                // Désactiver les autres sections (optionnel)
+                sections.forEach(section => {
+                    if (section !== entry.target) {
+                        section.classList.remove('active');
+                    }
+                });
             }
         });
-    }
+    }, observerOptions);
 
-    // Appeler la fonction après le chargement du DOM
-    document.addEventListener('DOMContentLoaded', initMultiItemCarousel);
+    // Observer chaque section
+    sections.forEach(section => {
+        observerSections.observe(section);
+    });
+
     return (
         <>
             <section className="container-fluid bg-light">
@@ -36,7 +41,10 @@ function Home() {
                                 <p className="hero-text">Notre éditeur intuitif en glisser-déposer vous permet
                                     de concevoir des en-têtes professionnels sans effort. Impressionnez vos clients avant même la première ligne.
                                 </p>
-                                <Link to={'/'} className="btn btn-link col-md-3 mt-5 hero-button text-decoration-none">Essayez maintenant</Link>
+                                <div className="">
+                                    <Link to={'/'} className="btn btn-link col-md-3 mt-5 hero-button2 text-decoration-none">Essayez gratuitement</Link>
+                                    <Link to={'/'} className="btn btn-link col-md-3 mt-5 me-3 hero-button text-decoration-none">En Savoir plus</Link>
+                                </div>
                             </div>
                         </div>
                         <div className="col-md-4 col-12"></div>
@@ -273,6 +281,9 @@ function Home() {
                     </div>
 
                 </div>
+            </section>
+            <section>
+
             </section>
         </>
     )

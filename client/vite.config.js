@@ -15,7 +15,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'dist', // Spécifique à Vercel
+     outDir: '../.vercel/output/static',// Spécifique à Vercel
     emptyOutDir: true,
     rollupOptions: {
       output: {
@@ -38,9 +38,9 @@ export default defineConfig({
     port: 3000
   },
   // Configuration spécifique Vercel
-  define: {
-    'process.env': process.env // Pour la compatibilité des variables d'environnement
-  },
+  // define: {
+  //   'process.env': process.env // Pour la compatibilité des variables d'environnement
+  // },
   optimizeDeps: {
     include: ['react', 'react-dom'] // Optimisation pour Vercel
   }

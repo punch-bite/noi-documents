@@ -1,17 +1,18 @@
 import { Outlet } from 'react-router-dom';
-import Header from '@sections/Header';
+import Aside from '@sections/aside';
 import Footer from '@sections/Footer'
+import Navigation from '@sections/navigation';
 
 function AuthLayout() {
 
     return (
-        <div className="app">
-            <Header />
-            <main>
+        <section className="app">
+            <Aside />
+            <main className='main bg-black min-vh-100' role='main'>
+                <Navigation />
                 <Outlet />
             </main>
-            <Footer />
-        </div>
+        </section>
     );
 }
 

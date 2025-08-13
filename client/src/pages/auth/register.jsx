@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import "./login.css"
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -11,31 +12,31 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <section className="connexion min-h-screen flex items-center justify-center">
       <div className="max-w-xs w-full">
-        <h2 className="text-2xl font-bold mb-4">Inscription</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
+        <form onSubmit={handleSubmit} className="space-y-4 formulaire">
+          <h2 className="text-2xl font-bold mb-4">Inscription</h2>
+          <div className='form-group mb-2'>
             <input
               type="email"
               placeholder="Email"
-              className="w-full p-2 border rounded"
+              className="form-control"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div>
+          <div className='form-group mb-2'>
             <input
               type="password"
               placeholder="Mot de passe"
-              className="w-full p-2 border rounded"
+              className="form-control"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button 
-            type="submit" 
-            className="w-full bg-green-500 text-white p-2 rounded"
+          <button
+            type="submit"
+            className="btn btn-dark bg-gradient col-12 my-3"
           >
             S'inscrire
           </button>
@@ -43,7 +44,12 @@ export default function Register() {
         <p className="mt-4 text-center">
           Déjà inscrit ? <Link to="/login" className="text-blue-500">Se connecter</Link>
         </p>
+        <h6 className='my-3'>Vous pouvez connecter</h6>
+        <div className="rsConnexions ">
+          <a href="" className="btn btn-outline-light mx-2"><i className="bi bi-google"></i></a>
+          <a href="" className="btn btn-outline-light mx-2"><i className="bi bi-facebook"></i></a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

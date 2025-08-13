@@ -9,21 +9,18 @@
       }
     },
     {
-      "src": "server/package.json",
+      "src": "server/api/**/*.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server"
+      "dest": "/server/api/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/client/dist/$1",
-      "headers": {
-        "Cache-Control": "s-maxage=0"
-      }
+      "dest": "/client/dist/$1"
     }
   ]
 }

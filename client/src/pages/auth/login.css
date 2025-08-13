@@ -1,0 +1,73 @@
+.connexion {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-primary);
+}
+
+.connexion::before {
+    content: '';
+    width: 60px;
+    height: 60px;
+    transform: rotate(30deg);
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    background: whitesmoke;
+    opacity: .6;
+    border-radius: 5px;
+}
+
+.connexion::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    transform: rotate(40deg);
+    position: absolute;
+    right: 10%;
+    bottom: 25%;
+    background: whitesmoke;
+    opacity: .9;
+    border-radius: 5px;
+}
+
+.formulaire {
+    padding: 50px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.formulaire::before {
+    content: '';
+    width: 50px;
+    height: 400px;
+    transform: rotate(10deg);
+    position: absolute;
+    right:10%;
+    bottom: 45%;
+    border-right: 2px dashed white;
+    border-left: 2px dashed white;
+    opacity: .3;
+    border-radius: 5px;
+}
+.formulaire::after {
+    content: '';
+    width: 50px;
+    height: 300px;
+    transform: rotate(40deg);
+    position: absolute;
+    left: 30%;
+    top: 5%;
+    border-right: 2px dashed white;
+    border-left: 2px dashed white;
+    opacity: .3;
+}
+.formulaire .form-control {
+    height: 40px;
+}
+.formulaire .form-control:focus{
+    border: 1px solid rgba(97, 1, 141, 0.767);
+    box-shadow: 0 0 3px 5px rgba(97, 1, 141, 0.178);
+}

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import "./header.css";
 function Header() {
 
     return (
-        <section className='container-fluid navbar navbar-expand-lg navbar-dark bg-white sticky-top d-flex align-items-center'>
+        <nav className='container-fluid navbar navbar-expand-lg navbar-dark bg-white sticky-top d-flex align-items-center'>
             <div className='container'>
                 <ul className='col-md-2'>
                     <li className='nav-item'>
@@ -23,11 +24,11 @@ function Header() {
                         <li className='nav-item me-3'><Link className='nav-link' to={"/team"}>Notre Equipe</Link></li>
                     </ul>
                     <ul className='navbar-nav col-md-2'>
-                        <li className='nav-item'><Link className='btn btn-link bg-dark bg-gradient text-decoration-none text-white' to={"/login"}>Connexion</Link></li>
+                        <li className='nav-item'><Link className='btn btn-link bg-black bg-gradient text-decoration-none text-white' to={"/login"}>Connexion</Link></li>
                     </ul>
                 </nav>
             </div>
-        </section>
+        </nav>
     );
 }
 
