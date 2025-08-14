@@ -6,7 +6,7 @@ import Navigation from '@sections/navigation';
 function AuthLayout() {
 
     return (
-        <section className="app">
+        <section className="apps">
             <Aside />
             <main className='main bg-black min-vh-100' role='main'>
                 <Navigation />

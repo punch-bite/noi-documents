@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     background: var(--bg-primary);
+    overflow: hidden;
 }
 
 .connexion::before {
@@ -37,6 +38,7 @@
     background: var(--bg-secondary);
     border-radius: 10px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9;
 }
 
 .formulaire::before {
@@ -45,29 +47,51 @@
     height: 400px;
     transform: rotate(10deg);
     position: absolute;
-    right:10%;
+    right: 10%;
     bottom: 45%;
     border-right: 2px dashed white;
     border-left: 2px dashed white;
     opacity: .3;
     border-radius: 5px;
+    z-index: -1;
 }
+
 .formulaire::after {
     content: '';
     width: 50px;
     height: 300px;
     transform: rotate(40deg);
     position: absolute;
-    left: 30%;
+    left: 20%;
     top: 5%;
     border-right: 2px dashed white;
     border-left: 2px dashed white;
     opacity: .3;
+    z-index: -1;
 }
+
 .formulaire .form-control {
     height: 40px;
 }
-.formulaire .form-control:focus{
+
+.formulaire .form-control:focus {
     border: 1px solid rgba(97, 1, 141, 0.767);
     box-shadow: 0 0 3px 5px rgba(97, 1, 141, 0.178);
+}
+.formulaire button{
+    height: 40px;
+    margin-top: 25px;
+}
+@media screen and (max-width:757px) {
+    .formulaire::before {
+        bottom: 0;
+        height: 150px;
+        right: 0;
+    }
+
+    .formulaire::after {
+        top: 0;
+        height: 150px;
+        left: 0;
+    }
 }
